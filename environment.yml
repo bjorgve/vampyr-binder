@@ -1,0 +1,11 @@
+name: vampyr-binder
+channels:
+  - conda-forge
+  - nostress
+  - defaults
+dependencies:
+  - matplotlib
+  - numpy
+  - mrcpp=*=*serial*
+  - pytest
+  - python=3.7

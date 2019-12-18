@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Initialize conda
+echo "Initialize conda"
+source "/srv/conda/etc/profile.d/conda.sh"
+
+# Activate conda environment
+echo "Activating conda environment"
+conda activate /srv/conda/envs/notebook
+
+# I don't do it earlier 'cause I don't want to mess with conda.sh
+set -euo pipefail
+
+# Clone repository
+echo "Cloning xtensor branch of robertodr/vampyr"
+git clone https://github.com/robertodr/vampyr.git
+git checkout use-conda-package
+
+# Configure
+echo "Configuring vampyr"
+./setup --type=debug
+# Build
+echo "Building vampyr"
+cd build
+make
+
+## Test a little bit
+#echo "Running smoke tests"
+#(
+#cd objdir || exit
+#ctest -L smoke
+#)
+#
+## Install
+#echo "Installing Psi4"
+#cmake --build objdir --target install
+
+# Proper initialization of conda, maybe it sticks?
+# conda init bash
