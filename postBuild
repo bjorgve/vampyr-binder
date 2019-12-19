@@ -13,11 +13,11 @@ set -euo pipefail
 
 # Clone repository
 echo "Cloning xtensor branch of robertodr/vampyr"
-git clone https://github.com/robertodr/vampyr.git
-git checkout use-conda-package
+git clone --single-branch -b use-conda-package https://github.com/robertodr/vampyr.git
 
 # Configure
 echo "Configuring vampyr"
+cd vampyr
 ./setup --type=debug
 # Build
 echo "Building vampyr"
