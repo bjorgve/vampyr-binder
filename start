@@ -4,7 +4,7 @@ set -euo pipefail
 
 # Make available to Python
 echo "Export PYTHONPATH"
-export PYTHONPATH="${HOME}/Software/vampyr/build/lib/python/${PYTHONPATH:+:$PYTHONPATH}"
+export PYTHONPATH="${HOME}/vampyr/build/lib/python/${PYTHONPATH:+:$PYTHONPATH}"
 echo "PYTHONPATH is now set to ${PYTHONPATH}"
 
 exec "$@"
